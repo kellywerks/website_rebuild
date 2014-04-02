@@ -1,0 +1,27 @@
+<h1><%= @section.name %></h1>
+
+<ul>
+<% @section.lessons.order(:number).each do |lesson| %>
+   <li><a href="/lessons/<%= lesson.id %>"> <%= lesson.name %> </a></li>
+<% end %>
+</ul>
+
+<br />
+<br />
+<p><a href="/sections/<%= @section.id %>/edit">Edit Section</a></p>
+
+<p><a href="/sections/<%= @section.id %>"
+   data-confirm="You sure?"
+   data-method="delete"
+   rel="nofollow">Delete Section</a></p>
+
+<div class="navbar navbar-fixed-bottom">
+<div class="navbar-inner">
+<div class="container">
+<ul class="nav pull-right">
+<li><a href="/sections">Section contents</a>
+<li><a href="/lessons">Table of contents</a></li>
+</ul>
+</div>
+</div>
+</div>

@@ -1,0 +1,31 @@
+<h1><%= @lesson.name %></h1>
+
+<%= @lesson.lesson_text %>
+
+<br />
+<br />
+<p><a href="/lessons/<%= @lesson.id %>/edit">Edit Lesson</a></p>
+
+<p><a href="/lessons/<%= @lesson.id %>"
+   data-confirm="You sure?"
+   data-method="delete"
+   rel="nofollow">Delete Lesson</a></p>
+
+<div class="navbar navbar-fixed-bottom">
+<div class="navbar-inner">
+<div class="container">
+<ul class="nav">
+<% if @lesson != Lesson.order(:number).first %>
+  <li><a href="/lessons/<%= @lesson.previous.id %>">Previous lesson</a></li>
+<% end %>
+<% if @lesson != Lesson.order(:number).last %>
+  <li><a href="/lessons/<%= @lesson.next.id %>">Next lesson</a></li>
+<% end %>
+</ul>
+<ul class="nav pull-right">
+<li><a href="/sections/@lesson.section">Section contents</a>
+<li><a href="/lessons">Table of contents</a></li>
+</ul>
+</div>
+</div>
+</div>

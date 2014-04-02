@@ -1,0 +1,7 @@
+development:
+  adapter: postgresql
+  database: lhtp_development
+
+test:
+  adapter: postgresql
+  database: lhtp_test

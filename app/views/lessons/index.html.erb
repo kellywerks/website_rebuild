@@ -1,0 +1,16 @@
+<h1>Learn How To Prattle</h1>
+
+<ul>
+  <% Section.all.each do |section| %>
+    <li><a href="/sections/<%= section.id %>"> <%= section.name %> </a></li>
+    <ul>
+    <% section.lessons.order(:number).each do |lesson| %>
+    <li><a href="/lessons/<%= lesson.id %>"> <%= lesson.name %> </a></li>
+    <% end %>
+    </ul>
+  <% end %>
+</ul>
+<br>
+<hr>
+<button><a href="/lessons/new">Add New Lesson</a></button>
+<button><a href="/sections">Add New Section</a></button>
